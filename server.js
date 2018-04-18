@@ -2,6 +2,8 @@ const express = require('express');
 const hsb = require('hbs');
 const fs = require('fs');
 
+const port = process.env.PORT || 3000; //grabs port from environment object this is for Heroku to be able to tell program what to use
+
 var app = express(); //creates app
 
 
@@ -27,16 +29,16 @@ app.use((req, res, next) => { //next i used so you can tell express when middlew
 });
 
 
-app.use((req, res, next) => { //next i used so you can tell express when middleware function is done
+// app.use((req, res, next) => { //next i used so you can tell express when middleware function is done
     
-   //  res.send('About Page');
-    res.render('maintenance.hbs', {
-        pageTitle: 'Maintenance Page',
-    }); //res.render will let you render any template 
+//    //  res.send('About Page');
+//     res.render('maintenance.hbs', {
+//         pageTitle: 'Maintenance Page',
+//     }); //res.render will let you render any template 
   
 
-     //name and contents
-});
+//      //name and contents
+// });
 
 app.use(express.static(__dirname + '/public')); //static takes absolute path of folder you want to serve
                                     //__dirname stores path to server
@@ -98,10 +100,10 @@ app.get('/bad', (req, res) => {
 //res.send send back json with errorMessage property. Unable to fulfill this request.
 
 
-app.listen(3000, () => {
-    console.log('Server is up on port 3000');
+app.listen(port, () => {
+    console.log(`Server is up on port ${port}`);
 });   //binds app to port
-
+//changed to work with heroku
 
 //create new template
 //replace res send 
