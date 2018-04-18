@@ -80,6 +80,13 @@ app.get('/about', (req, res) => {
   }); //res.render will let you render any template 
 });
 
+app.get('/projects', (req, res) => {
+    //  res.send('About Page');
+    res.render('projects.hbs', {
+        pageTitle: 'My Projects',
+    }); //res.render will let you render any template 
+  });
+
 
 app.get('/home', (req, res) => {
     //  res.send('About Page');
@@ -109,3 +116,11 @@ app.listen(port, () => {
 //replace res send 
 //home.hps 
 //welcome message
+
+
+//add projects page
+//render handlebars template
+// /projects
+// make view file header footer render message
+//partials header - add new projects page link
+//
